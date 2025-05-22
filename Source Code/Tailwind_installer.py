@@ -16,7 +16,7 @@ body_text="""<!DOCTYPE html>
 </body>
 </html>
 """
-pname=input("Enter the name of your project folder")
+pname=input("Enter the name of your project folder: ")
 try:
     os.mkdir(f"C:\\users\\{user_name}\\Downloads\\{pname}")
 except:
