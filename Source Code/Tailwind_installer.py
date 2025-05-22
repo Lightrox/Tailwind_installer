@@ -16,11 +16,12 @@ body_text="""<!DOCTYPE html>
 </body>
 </html>
 """
+pname=input("Enter the name of your project folder")
 try:
-    os.mkdir(f"C:\\users\\{user_name}\\Downloads\\Tailwind_projects")
+    os.mkdir(f"C:\\users\\{user_name}\\Downloads\\{pname}")
 except:
     pass
-os.chdir(f"C:\\users\\{user_name}\\Downloads\\Tailwind_projects")
+os.chdir(f"C:\\users\\{user_name}\\Downloads\\{pname}")
 
 def setup():
     subprocess.run(["npm", "init", "-y"], shell=True)
@@ -33,7 +34,7 @@ def setup():
     subprocess.run(["npx", "@tailwindcss/cli", "-i", "./input.css", "-o", "./output.css"], shell=True)
     time.sleep(2)
     subprocess.run(["code", "."], shell=True)
-    webbrowser.open_new_tab(f"C:\\users\\{user_name}\\Downloads\\Tailwind_projects\\index.html")
+    webbrowser.open_new_tab(f"C:\\users\\{user_name}\\Downloads\\{pname}\\index.html")
 def installer():
     subprocess.run([
     "powershell", "-Command",
@@ -44,7 +45,7 @@ def check_node_installed():
     try:
         subprocess.run(['node', '-v'], capture_output=True, text=True, check=True)
         setup()
-    except (subprocess.CalledProcessError, FileNotFoundError):
+    except :
         installer()
         setup()
 
